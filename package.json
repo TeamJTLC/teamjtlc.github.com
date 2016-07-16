@@ -1,8 +1,8 @@
 {
-  "name": "Java thin layer chromatography",
+  "name": "jtlc",
   "title": "jTLC",
   "version": "1.0.0",
-  "homepage": "https://teamjtlc.github.io/jtlc/",
+  "homepage": "https://teamjtlc.github.io/",
   "author": "teamjtlc",
   "license": {
     "type": "MIT",

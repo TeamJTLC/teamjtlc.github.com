@@ -1,5 +1,5 @@
 /*!
- * jTLC - jTLC v1.0.0 (https://teamjtlc.github.io/jtlc/)
+ * jTLC - jTLC v1.0.0 (https://teamjtlc.github.io/)
  * Copyright 2015-2016 teamjtlc
  * Licensed under MIT ()
  */
