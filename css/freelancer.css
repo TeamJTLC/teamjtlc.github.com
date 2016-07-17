@@ -32,6 +32,7 @@ h6 {
   font-weight: 700;
 }
 hr.star-light,
+hr.star-dark,
 hr.star-primary {
   padding: 0;
   border: none;
@@ -41,6 +42,7 @@ hr.star-primary {
   margin: 25px auto 30px;
 }
 hr.star-light:after,
+hr.star-dark:after,
 hr.star-primary:after {
   content: "\f005";
   font-family: FontAwesome;
@@ -57,6 +59,10 @@ hr.star-light:after {
   background-color: #18BC9C;
   color: white;
 }
+hr.star-dark:after {
+  background-color: #233140;
+  color: white;
+}
 hr.star-primary {
   border-color: #2C3E50;
 }
@@ -69,8 +75,8 @@ hr.star-primary:after {
 }
 header {
   text-align: center;
-  background: #18BC9C;
-  color: white;
+  background: white;
+  color: #2C3E50;
 }
 header .container {
   padding-top: 100px;
@@ -182,11 +188,22 @@ section {
   padding: 100px 0;
 }
 section h2 {
+  color: #2C3E50;
   margin: 0;
   font-size: 3em;
 }
 section.success {
   background: #18BC9C;
+  color: white;
+}
+section.success h2 {
+  color: white;
+}
+section.dark {
+  background: #233140;
+  color: white;
+}
+section.dark h2 {
   color: white;
 }
 @media (max-width: 767px) {

@@ -9,7 +9,7 @@ $(function() {
             // Prevent spam click and default submit behaviour
             $("#btnSubmit").attr("disabled", true);
             event.preventDefault();
-            
+
             // get values from FORM
             var name = $("input#name").val();
             var email = $("input#email").val();
@@ -20,8 +20,46 @@ $(function() {
             if (firstName.indexOf(' ') >= 0) {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
+
+            var id = 204977;
+			      var subject = phone;
+      			var grecaptcharesponse ;
+            if(typeof $('textarea[name=g-recaptcha-response]') !== 'undefined') grecaptcharesponse = $('textarea[name=g-recaptcha-response]').val(); else grecaptcharesponse ='';
+
+      			var dataString = 'id='+ id + '&name=' + name + '&email=' + email + '&subject=' + subject + '&message=' + message + '&grecaptcharesponse=' + grecaptcharesponse;
+            			//alert(dataString);
+            			$('#response').html("Sending...");
+
+            			$.ajax({
+            				type: "POST",
+            				url: "http://kontactr.com/xuser/process",
+            				data: dataString,
+            				success: function(html) {
+                      console.log(html);
+            						if(html == "1")
+            						{
+            							$('#response').html('<div class="error">All fields are required</div>');
+            							$('input[value=]').first().focus();
+            						}
+            						else if(html == "2")
+            						{
+            							$('#response').html('<div class="error">Invalid email address</div>');
+            							$('input[name=email]').focus();
+            						}
+            						else if(html == "3")
+            						{
+            							$('#response').html('<div class="error">reCAPTCHA not validated</div>');
+            						}
+            						else // if(html == "Success")
+            						{
+            							$('#kform').html('<div class="success">Your message has been sent successfully. Want a <a href="http://kontactr.com/signup" target="_blank">contact form</a> like this?</div>');
+            						}
+            					}
+            			});
+
+            /*
             $.ajax({
-                url: "././mail/contact_me.php",
+                url: "http://kontactr.com/xuser/process",
                 type: "POST",
                 data: {
                     name: name,
@@ -54,7 +92,7 @@ $(function() {
                     //clear all fields
                     $('#contactForm').trigger("reset");
                 },
-            });
+            });*/
         },
         filter: function() {
             return $(this).is(":visible");
